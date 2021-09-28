@@ -1,3 +1,6 @@
+#![warn(clippy::pedantic, clippy::cargo, unsafe_op_in_unsafe_fn)]
+#![allow(clippy::needless_doctest_main)]
+
 /*!
 Macro for dropping the fields of a struct or enum without dropping the container.
 

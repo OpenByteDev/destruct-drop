@@ -1,3 +1,5 @@
+#![warn(clippy::pedantic, clippy::cargo, unsafe_op_in_unsafe_fn)]
+
 use proc_macro::{self, TokenStream};
 use quote::quote;
 use syn::{parse_macro_input, DataEnum, DataUnion, DeriveInput, FieldsNamed, FieldsUnnamed};
