@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "destruct-drop",
+    "destruct-drop-derive",
+]

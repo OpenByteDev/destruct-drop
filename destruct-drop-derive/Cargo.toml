@@ -1,0 +1,20 @@
+[package]
+name = "destruct-drop-derive"
+version = "0.1.0"
+description = "Actual derive macro for destruct-drop."
+readme = "README.md"
+repository = "https://github.com/OpenByteDev/destruct-drop-derive"
+documentation = "https://docs.rs/destruct-drop-derive"
+license = "MIT"
+authors = ["OpenByte <development.openbyte@gmail.com>"]
+edition = "2018"
+categories = ["rust-patterns"]
+keywords = ["macro", "derive", "drop", "destruct"]
+
+[dependencies]
+syn = "1.0"
+proc-macro2 = "1.0"
+quote = "1.0"
+
+[lib]
+proc-macro = true
