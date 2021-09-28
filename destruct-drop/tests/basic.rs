@@ -1,4 +1,4 @@
-use std::{cell::Cell, rc::Rc};
+use std::{cell::Cell, marker::PhantomData, rc::Rc};
 
 use destruct_drop::DestructDrop;
 
@@ -119,4 +119,23 @@ fn basic_unit_enum() {
     assert!(!dropped_c.get());
     dont_drop_this_c.destruct_drop();
     assert!(dropped_c.get());
+}
+
+#[derive(DestructDrop)]
+struct DontDropThisGeneric<'a, T>(T, PhantomData<&'a T>);
+
+impl <'a, T> Drop for DontDropThisGeneric<'a, T> {
+    fn drop(&mut self) {
+        panic!("Dropped DontDropThisGeneric");
+    }
+}
+
+#[test]
+fn basic_struct_generic() {
+    let dropped_inner = Rc::new(Cell::new(false));
+    let dont_drop_this = DontDropThisGeneric(DropThis(dropped_inner.clone()), PhantomData);
+    
+    assert!(!dropped_inner.get());
+    DestructDrop::destruct_drop(dont_drop_this);
+    assert!(dropped_inner.get());
 }

@@ -7,7 +7,7 @@ use syn::{
 
 #[proc_macro_derive(DestructDrop)]
 pub fn derive_destruct_drop(input: TokenStream) -> TokenStream {
-    let DeriveInput { ident, data, .. } = parse_macro_input!(input);
+    let DeriveInput { ident, data, generics, .. } = parse_macro_input!(input);
 
     let drop_code = match data {
         syn::Data::Struct(s) => {
@@ -71,7 +71,7 @@ pub fn derive_destruct_drop(input: TokenStream) -> TokenStream {
     };
 
     (quote! {
-        impl #ident {
+        impl #generics ::destruct_drop::DestructDrop for #ident #generics {
             fn destruct_drop(self) {
                 let mut this = ::core::mem::ManuallyDrop::new(self);
                 #drop_code
