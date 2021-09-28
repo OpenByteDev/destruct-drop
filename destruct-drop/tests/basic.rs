@@ -66,7 +66,7 @@ fn basic_tuple_struct() {
 
     assert!(!dropped_0.get());
     assert!(!dropped_2.get());
-    
+
     dont_drop_this.destruct_drop();
 
     assert!(dropped_0.get());
@@ -107,7 +107,9 @@ fn basic_unit_enum() {
     dont_drop_this_a.destruct_drop();
 
     let dropped_b = Rc::new(Cell::new(false));
-    let dont_drop_this_b = DontDropThisEnum::B { v: DropThis(dropped_b.clone()) };
+    let dont_drop_this_b = DontDropThisEnum::B {
+        v: DropThis(dropped_b.clone()),
+    };
     assert!(!dropped_b.get());
     dont_drop_this_b.destruct_drop();
     assert!(dropped_b.get());

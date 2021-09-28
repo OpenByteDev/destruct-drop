@@ -39,7 +39,6 @@ fn main() {
 ```
 !*/
 
-
 pub use destruct_drop_derive::*;
 
 /// Trait for consuming a struct or enum without dropping it while dropping all of its contents normally.
