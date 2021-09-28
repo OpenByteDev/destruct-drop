@@ -70,13 +70,12 @@ pub fn derive_destruct_drop(input: TokenStream) -> TokenStream {
         }
     };
 
-    quote! {
+    (quote! {
         impl #ident {
             fn destruct_drop(self) {
                 let mut this = ::core::mem::ManuallyDrop::new(self);
                 #drop_code
             }
         }
-    }
-    .into()
+    }).into()
 }
