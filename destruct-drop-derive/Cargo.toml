@@ -2,7 +2,7 @@
 name = "destruct-drop-derive"
 version = "0.1.0"
 description = "Actual derive macro for destruct-drop."
-readme = "README.md"
+readme = "../README.md"
 repository = "https://github.com/OpenByteDev/destruct-drop-derive"
 documentation = "https://docs.rs/destruct-drop-derive"
 license = "MIT"

@@ -2,7 +2,7 @@
 name = "destruct-drop"
 version = "0.1.0"
 description = "Macro for dropping the fields of a struct or enum without dropping the container."
-readme = "README.md"
+readme = "../README.md"
 repository = "https://github.com/OpenByteDev/destruct-drop"
 documentation = "https://docs.rs/destruct-drop"
 license = "MIT"
