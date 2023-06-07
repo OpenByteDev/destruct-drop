@@ -1,6 +1,6 @@
 [package]
 name = "destruct-drop"
-version = "0.1.0"
+version = "0.2.0"
 description = "Macro for dropping the fields of a struct or enum without dropping the container."
 readme = "../README.md"
 repository = "https://github.com/OpenByteDev/destruct-drop"
@@ -12,4 +12,4 @@ categories = ["rust-patterns"]
 keywords = ["macro", "derive", "drop", "destruct"]
 
 [dependencies]
-destruct-drop-derive = { version = "0.1", path = "../destruct-drop-derive" }
+destruct-drop-derive = { version = "0.2", path = "../destruct-drop-derive" }
